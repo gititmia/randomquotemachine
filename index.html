@@ -1,0 +1,189 @@
+<body>
+<h1 class="header">Click "New Quote" for a Random Quote!</h1>
+<div id="quote-box">
+  <div id="text"></div>
+  <i>
+    <div id="author"></div>
+  </i>
+    <div class="button-container">
+      <button id="love-quote" class="button-one">I love this quote!</button>
+      <button id="retweet" class="button-two"><a id="tweet-quote" href="twitter.com/intent/tweet">Retweet</a>
+      </button>
+      <button id="new-quote" class="button-three">New Quote</button>
+    </div>
+</div>
+</body>
+
+<style>
+  .header {
+  font-family: system-ui;
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding-top: 50px;
+ }
+
+body {
+  background-image: url("https://images.unsplash.com/photo-1514477917009-389c76a86b68?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2589&q=80");
+  background-size: cover;
+
+}
+
+.button-container {
+  display: flex;
+  text-align: center;
+  padding: 50px 20px;
+  color: white;
+  border: none;
+}
+
+.button-one {
+  position: absolute;
+  left: 150px;
+  bottom: 30px;
+  background-color: lightpink;
+  padding: 10px 20px;
+  border-radius: 10px;
+  color: black;
+  font-weight: bold;
+  font-family: system-ui;
+}
+
+.button-two {
+  position: absolute;
+  left: 328px;
+  bottom: 30px;
+  background-color: lightyellow;
+  padding: 10px 20px;
+  border-radius: 10px;
+
+}
+
+a#tweet-quote {
+  color: black;
+  font-weight: bold;
+  font-family: system-ui;
+  text-decoration: none;
+}
+
+.button-three {
+  position: absolute;
+  right: 150px;
+  bottom: 30px;
+  background-color: lightskyblue;
+  padding: 10px 20px;
+  border-radius: 10px;
+  color: black;
+  font-weight: bold;
+  font-family: system-ui;
+}
+
+
+#quote-box {
+  position: absolute;
+  top: 50%; 
+  left: 50%; 
+  transform: translate(-50%, -50%); 
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 25px;
+  background-color: rgba(255, 255, 255, 0.5);
+
+
+}
+
+#text {
+  font-family: Garamond;
+  font-size: 35px;
+  padding: 40px 50px 20px 50px;
+}
+
+#author {
+  font-family: Georgia;
+  font-size: 25px;
+  padding-bottom: 10px;
+}
+
+
+
+</style>
+
+<script>
+const quotes = [
+      {
+        text: "Feminism isn't about making women stronger. Women are already strong, it's about changing the way the world perceives that strength.",
+        author: "G.D. Anderson"
+      },
+      {
+        text: "They\'ll tell you you\'re too loud, that you need to wait your turn and ask the right people for permission. Do it anyway.",
+        author: "Alexandria Ocasio Cortez"
+      },
+      {
+        text: "I am not free while any woman is unfree, even when her shackles are very different from my own.",
+        author: "Audre Lorde"
+      },
+      {
+        text: "There is no limit to what we, as women, can accomplish.",
+        author: "Michelle Obama"
+      },
+      {
+        text: "A woman without a man is like a fish without a bicycle.",
+        author: "Irina Dunn"
+      },
+      {
+        text: "I always wanted to be a femme fatale. Even when I was a young girl, I never really wanted to be a girl. I wanted to be a woman.",
+        author: "Diane von Furstenberg"
+      },
+      {
+        text: "I love to see a young girl go out and grab the world by the lapels. Life's a bitch. You've got to go out and kick ass.",
+        author: "Maya Angelou"
+      },
+      {
+        text: "We need women at all levels, including the top, to change the dynamic, reshape the conversation, to make sure women's voices are heard and heeded, not overlooked and ignored.",
+        author: "Sheryl Sandberg"
+      },
+      {
+        text: "We need to reshape our own perception of how we view ourselves. We have to step up as women and take the lead.",
+        author: "Beyonce"
+      },
+      {
+        text: "No woman should be told she can't make decisions about her own body. When women's rights are under attack, we fight back.",
+        author: "Kamala Harris"
+      },
+      {
+        text: "In the future, there will be no female leaders. There will just be leaders.",
+        author: "Sheryl Sandberg"
+      },
+      {
+        text: "Women's freedom is the sign of social freedom.",
+        author: "Rosa Luxemburg"
+      },
+      {
+        text: "We know that when a woman speaks truth to power, there will be attempts to put her down... I'm not going to go anywhere.",
+        author: "Maxine Waters"
+      },
+      {
+        text: "I'm tough, ambitious, and I know exactly what I want. If that makes me a bitch, okay.",
+        author: "Madonna"
+      }
+  ]
+
+function getRandomQuote() {
+  const randomIndex = Math.floor(Math.random() * quotes.length);
+  return quotes[randomIndex];
+}
+
+function displayQuote() {
+  const { text, author } = getRandomQuote();
+  document.getElementById("text").textContent = text;
+  document.getElementById("author").textContent = `- ${author}`;
+}
+
+document.getElementById("new-quote").addEventListener("click", displayQuote);
+displayQuote();
+
+
+</script>
